@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<div><button id="photo">{{title}}</button></div>
+    <div><img src="{{imgurl}}" alt=""></div>
+
+</body>
+    <script>
+        $("#photo").click(function() {
+
+             df = {"df": {"dt1":[0,23,90.09]}};
+            console.log(df);
+            $.ajax({
+                type: "post",
+                url: "/test/jsoned",
+                async: true,
+                // headers:{"Content-Type":"application/json","accept":"application/json","name":"666"},
+                // dataType:"json",
+                data:JSON.stringify(df),  //http 请求 记住要把数据转换为json格式数据
+                success: function (res) {
+                    console.log('成功检测');
+                    console.log(res);
+                    console.log(res["data"]["lst"]);
+                },
+                error:function () {
+                    alert("返回数据失败")
+                }
+            });
+        })
+    </script>
+</html>
