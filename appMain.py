@@ -7,7 +7,7 @@ from system_file.databases_config import engine
 # 导入数据模进行创建
 from data_model.dtModel import *
 
-
+# 根据数据模型创建数据表
 Base.metadata.create_all(bind=engine)
 
 # cmd启动
